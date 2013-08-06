@@ -1,0 +1,4 @@
+docs
+====
+
+aidkit documentation
