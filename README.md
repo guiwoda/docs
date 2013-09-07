@@ -89,7 +89,7 @@ Thats about it what *Aidkit* will create out-of-the-box.
 ## <a id="config"></a>Configuration + Navigation
 
 Taking a look at `app/config/packages/codebryo/aidkit/config.php` you'll find some changeable Values when working with *Aidkit*.
-You can set a title for your backend and define which layout files shall be used. **Note:** *Those layout files are relative to the `app/views_admin` folder*.
+You can set a title for your backend and define which layout files shall be used. **Note:** *Those layout files are relative to the `app/Aidkit/views` folder*.
 
 The most important value so far is
 
@@ -149,7 +149,7 @@ Thats the way of providing a sitewide available navigation of your backend. At t
 
 ## <a id="routing"></a>Routing
 
-All your routes used in the backend can be stored in `app/Aidkit/routes/routes_aidkit.php`. This File is included through *Aidkit* by default and all Routes are prefixed by a value defined in the config file ( by default this is 'admin'). So all your routes pointing to ressources or urls shoud have this prefix.
+All your routes used in the backend can be stored in `app/Aidkit/routes.php`. This File is included through *Aidkit* by default and all Routes are prefixed by a value defined in the config file ( by default this is 'admin'). So all your routes pointing to ressources or urls shoud have this prefix.
 
 The idea behind this is to provide a clean seperation of *Frontend* and *Backend* routes. You will also realise there are two groups included in your administrative routes as well. Those groups use the `adminauth` ( a copy of *auth* filter but it redirects you to the login route in the same file ) and `csrf` filters that laravel provides for us.
 
@@ -197,7 +197,7 @@ Well that's it for providing special Backend Controllers. You won't have to hass
 
 Long story short, this Controller doesn't do much at the Moment but as *Aidkit* will evolve, this Controller will do as well.
 
-For now it offers the possibility of extending the default layout for providing your content. The default layout can be found in the `views_admin/layout/master.blade.php` file and is set in the *Aidkit* configuration.
+For now it offers the possibility of extending the default layout for providing your content. The default layout can be found in the `app/Aidkit/views/layouts/master.blade.php` file and is set in the *Aidkit* configuration.
 
 ---
 
@@ -282,9 +282,9 @@ Feel free to change them in the *UsersTableSeeder* file before calling the `db:s
 
 ## <a id="actionlog"></a>Actionlog
 
-As allready mentioned somewhere above *Aidkit* comes with a **Actionlog**. After *migrating* tha tables provided by *Aidkit* you are good to go. By default your 10 latest Actions will be viewable on the dashboard after logging into your application. This can be found at `app/controllers/Admin/HomeController.php` and should look something like this.
+As allready mentioned somewhere above *Aidkit* comes with a **Actionlog**. After *migrating* tha tables provided by *Aidkit* you are good to go. By default your 10 latest Actions will be viewable on the dashboard after logging into your application. This can be found at `app/Aidkit/controllers/AidkitHomeController.php` and should look something like this.
 
-	class AdminHomeController extends AidkitController {
+	class AidkitHomeController extends AidkitController {
 
 		public function showDashboard()
 		{
