@@ -54,6 +54,10 @@ and also add *Aidkit* to the aliases
 
 	'Aidkit'		  => 'Codebryo\Aidkit\Support\Facades\Aidkit'
 	
+create a folder to store Aidkit files
+
+	mkdir app/Aidkit
+
 and finally add following to the `autoload` array in your composer.json
 
 	"autoload": {
